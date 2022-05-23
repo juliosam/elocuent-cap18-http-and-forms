@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HTTP and Forms</h1>
+    <p>En este capitulo se discute como es que trabaja el protocolo HTTP. Un
+       cliente manda una solicitud que contiene un metodo (usualmente GET) y 
+       un camino (path) que identifica un recurso. El servidor decide que hacer
+       con la solicitud y responde con un codigo de status y un cuerpo de 
+       respuesta. Tanto la solicitud como la respuesta deben contener encabezados
+       con informacion adicional.
+    </p>
+    <p>
+        La interfaz a traves de la cual JavaScript del navegador puede hacer 
+        solicitudes HTTP se llama fetch. Una solicitud se ve asi:
+    </p>
+    <p>
+        fetch("/18_http.html").then(r => r.text()).then(text => {
+            console.log(`The page starts with ${text.slice(0, 15)}`);
+          });
+    </p>
+    <p>
+        Los navegadores hacen solicitudes GET para hacer fetch a los recursos 
+        necesarios para desplegar una pagina web. Una pagina podria tambien 
+        contener formularios que permiten a la informacion introducida por el usuario 
+        ser enviada como solicitud para una nueva pagina cuando el formulario sea
+        enviado.
+    </p>
+    <p>
+        HTML puede representar varios tipos de campo de forma, como campos de 
+        texto, checkboxes, campos de opcion multiple y de seleccion de archivos. 
+    </p>
+    <p>
+        Dichos campos pueden ser inspeccionados y manipulados por JavaScript.
+        Estos disparan el "change" aun cuando sufren cambio, disparan "input" 
+        aun cuando se se esta escribiendo texto, y reciben eventos de teclado 
+        cuando hay enfoque en el teclado. Propiedades como "value" (para texto y
+        campos de seleccion) o "checked" (para checkboxes y botones de radio) son 
+        usados para leer o establecer el contenido del campo.
+    </p>
+    <p>
+        Cuando se envia un formulario, se dispara un evento "submit". Un manejador
+        de Javascript puede llamar prevenDefault sobre ese evento, para deshabilitar
+        el comportamiento por defecto del navegador. Los elementos de campo de 
+        formulario tambien pueden suceder fuera de un formulario.
+    </p>
+    <p>
+        Cuando el usuario ha seleccionado un archivo de su sistema local en un campo
+        de seleccion de archivos, la interfaz lectora de archivos puede ser usada para 
+        acceder el contenido del archivo desde un programa JavaScript.
+    </p>
+    <p>
+        Los objetos localStorage y sessionStorage pueden ser utilizados para guardar 
+        informacion de manera que sobreviva despues de refrescar la pagina. El 
+        primer objeto guarda la informacion para siempre o hasta que la borre el
+        usuario, y el segundo la guarda hasta que se cierre el navegador.  
+    </p>
+</body>
+</html>
